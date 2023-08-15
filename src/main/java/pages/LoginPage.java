@@ -23,9 +23,9 @@ public class LoginPage extends PageObject {
   @FindBy(id = "login-button")
   private WebElementFacade loginButton;
 
-
   @FindBy(css = "#header_container > div.header_secondary_container > span")
   private WebElementFacade dashboardHeadline;
+
 
   public void userPutsUsernameField(){
     userNameField.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
