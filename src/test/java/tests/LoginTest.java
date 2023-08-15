@@ -1,6 +1,5 @@
 package tests;
 
-import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
@@ -23,9 +22,14 @@ public class LoginTest extends BaseClass {
     private LoginSteps loginSteps;
 
     @Test
-    public void userTest(){
+    public void loginUserTest(){
       baseClass.userRedirectToRightUrl();
-      loginSteps.user_verify_the_headline();
+      loginSteps.user_puts_email();
+      loginSteps.user_puts_password();
+      loginSteps.user_taps_login_button();
+      loginSteps.user_verify_the_dashboard_headline();
     }
+
+
 
 }
