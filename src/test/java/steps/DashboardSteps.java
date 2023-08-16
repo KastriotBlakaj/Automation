@@ -2,7 +2,7 @@ package steps;
 
 import pages.DashboardPage;
 
-public class DashboardSteps {
+public class DashboardSteps extends DashboardPage{
 
   private DashboardPage dashboardPage;
 

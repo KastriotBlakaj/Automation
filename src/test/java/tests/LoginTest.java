@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
+import steps.CartSteps;
 import steps.DashboardSteps;
 import steps.LoginSteps;
 
@@ -25,6 +26,9 @@ public class LoginTest extends BaseClass {
     @Steps
     private DashboardSteps dashboardSteps;
 
+    @Steps
+    private CartSteps cartSteps;
+
     @Test
     public void loginUserTest(){
       loginMethod();
@@ -35,6 +39,19 @@ public class LoginTest extends BaseClass {
     loginMethod();
     dashboardSteps.user_adds_item_to_the_cart();
     dashboardSteps.user_taps_on_the_cart();
+  }
+
+  @Test
+  public void addingNewItemIntoCartAndRemovingIt(){
+    loginMethod();
+    dashboardSteps.user_adds_item_to_the_cart();
+    dashboardSteps.user_taps_on_the_cart();
+    cartSteps.verify_cart_headline_text();
+    cartSteps.click_remove_item_button();
+    cartSteps.click_continue_shopping_button();
+    dashboardSteps.user_adds_item_to_the_cart();
+    dashboardSteps.user_taps_on_the_cart();
+    cartSteps.checkoutButton();
   }
 
   public void loginMethod(){

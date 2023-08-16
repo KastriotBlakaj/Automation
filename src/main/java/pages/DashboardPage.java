@@ -10,7 +10,7 @@ import java.time.Duration;
 
 public class DashboardPage extends PageObject {
 
-  private static final Duration TIMEOUT_IN_SECONDS = ofSeconds(10);
+      private static final Duration TIMEOUT_IN_SECONDS = ofSeconds(10);
 
       @FindBy(id = "add-to-cart-sauce-labs-backpack")
       private WebElementFacade addingToCartButton;
