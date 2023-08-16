@@ -30,10 +30,8 @@ public class CheckOutPage  extends PageObject {
       @FindBy(id = "last-name")
       private WebElementFacade lastNameField;
 
-
       @FindBy(id = "postal-code")
       private WebElementFacade postalCodeField;
-
 
       @FindBy(id = "finish")
       private WebElementFacade finishButton;

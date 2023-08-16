@@ -28,5 +28,4 @@ public class BaseClass extends UIInteractionSteps {
             getDriver().quit();
         }
       }
-
 }

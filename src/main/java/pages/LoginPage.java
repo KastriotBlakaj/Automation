@@ -12,39 +12,39 @@ import java.time.Duration;
 
 public class LoginPage extends PageObject {
 
-  private static final Duration TIMEOUT_IN_SECONDS = ofSeconds(10);
+    private static final Duration TIMEOUT_IN_SECONDS = ofSeconds(10);
 
-  @FindBy(id = "user-name")
-  private WebElementFacade userNameField;
+    @FindBy(id = "user-name")
+    private WebElementFacade userNameField;
 
-  @FindBy(id = "password")
-  private WebElementFacade passwordField;
+    @FindBy(id = "password")
+    private WebElementFacade passwordField;
 
-  @FindBy(id = "login-button")
-  private WebElementFacade loginButton;
+    @FindBy(id = "login-button")
+    private WebElementFacade loginButton;
 
-  @FindBy(css = "#header_container > div.header_secondary_container > span")
-  private WebElementFacade dashboardHeadline;
+    @FindBy(css = "#header_container > div.header_secondary_container > span")
+    private WebElementFacade dashboardHeadline;
 
 
-  public void userPutsUsernameField(){
-    userNameField.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
-    userNameField.sendKeys(USER_USERNAME);
-  }
+    public void userPutsUsernameField(){
+        userNameField.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
+        userNameField.sendKeys(USER_USERNAME);
+    }
 
-  public void userPutsPasswordField(){
-    passwordField.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
-    passwordField.sendKeys(USER_PASSWORD);
-  }
+    public void userPutsPasswordField(){
+        passwordField.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
+        passwordField.sendKeys(USER_PASSWORD);
+    }
 
-  public void clickLoginButton(){
-    loginButton.withTimeoutOf(TIMEOUT_IN_SECONDS).isClickable();
-    loginButton.click();
-  }
+    public void clickLoginButton(){
+        loginButton.withTimeoutOf(TIMEOUT_IN_SECONDS).isClickable();
+        loginButton.click();
+    }
 
-  public String getDashboardHeadline(){
-    dashboardHeadline.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
-    return dashboardHeadline.getTextContent();
-  }
+    public String getDashboardHeadline(){
+        dashboardHeadline.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
+        return dashboardHeadline.getTextContent();
+    }
 
 }

@@ -55,7 +55,7 @@ public class LoginTest extends BaseClass {
         cartSteps.click_continue_shopping_button();
         dashboardSteps.user_adds_item_to_the_cart();
         dashboardSteps.user_taps_on_the_cart();
-        cartSteps.checkoutButton();
+        cartSteps.click_on_checkout_button();
     }
 
     @Test
@@ -68,7 +68,7 @@ public class LoginTest extends BaseClass {
         cartSteps.click_continue_shopping_button();
         dashboardSteps.user_adds_item_to_the_cart();
         dashboardSteps.user_taps_on_the_cart();
-        cartSteps.checkoutButton();
+        cartSteps.click_on_checkout_button();
         checkoutSteps.verify_checkout_headline_Text();
         checkoutSteps.click_continue_button();
         checkoutSteps.verify_error_on_checkout();
