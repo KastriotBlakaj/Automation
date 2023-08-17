@@ -34,6 +34,10 @@ The **LoginTest** Include the  Positive TestsCases and the Functional Testing Al
 And the **NegativeLoginTest** on this Directory "src/test/java/tests/NegativeLoginTest.java"  
 The **NegativeLoginTest** Include Negative test for Login
 
+## There is a Diagram of the Code Structure
+
+![](/Users/kastriotblakaj/Desktop/diagram.png)
+
 
 
 
