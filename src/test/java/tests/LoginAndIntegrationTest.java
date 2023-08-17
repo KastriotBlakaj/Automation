@@ -13,7 +13,7 @@ import steps.DashboardSteps;
 import steps.LoginSteps;
 
 @ExtendWith(SerenityJUnit5Extension.class)
-public class LoginTest extends BaseClass {
+public class LoginAndIntegrationTest extends BaseClass {
 
     @Managed
     WebDriver driver;
