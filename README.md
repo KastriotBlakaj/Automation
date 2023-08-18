@@ -34,6 +34,13 @@ The **LoginTest** Include the  Positive TestsCases and the Functional Testing Al
 And the **NegativeLoginTest** on this Directory "src/test/java/tests/NegativeLoginTest.java"  
 The **NegativeLoginTest** Include Negative test for Login
 
+## Note : 
+The new version of Chrome 116 it's not yet compatible with Serenity The Latest Version 3.9.8 that means that the "Serenity @Managed driver " 
+won't get along with the Chrome version 116. 
+Solution : Download the chrome driver version 116 from this url https://googlechromelabs.github.io/chrome-for-testing/  
+and the version of the chrome should be on 116 too, 
+These properties are set manually under the BaseClass **src/test/java/tests/BaseClass.java** and run the tests as described above !
+
 ## There is a Diagram of the Code Structure
 
 ![](/Users/kastriotblakaj/Desktop/diagram.png)
