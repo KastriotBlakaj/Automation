@@ -46,6 +46,15 @@ These properties are set manually under the BaseClass **src/test/java/tests/Base
 ![](/Users/kastriotblakaj/Desktop/diagram.png)
 
 
+## Reports 
+
+You can see a very structured Reports.
+Go into the Maven tab and look for command :**mvn verify**  
+what this would do it's that will run all the tests and then once all ran it will generate reports 
+that can be found under "target/site/serenity/theFrirstfile.html" there you will find all the  reports what failed and what not
+This is the way to implement on CI/CD too and trigger them on nightly basis
+
+
 
 
 
