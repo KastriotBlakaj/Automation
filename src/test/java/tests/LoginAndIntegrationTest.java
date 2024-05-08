@@ -11,6 +11,7 @@ import steps.CartSteps;
 import steps.CheckoutSteps;
 import steps.DashboardSteps;
 import steps.LoginSteps;
+import steps.AboutSteps;
 
 @ExtendWith(SerenityJUnit5Extension.class)
 public class LoginAndIntegrationTest extends BaseClass {
@@ -33,9 +34,19 @@ public class LoginAndIntegrationTest extends BaseClass {
     @Steps
     private CheckoutSteps checkoutSteps;
 
+    @Steps
+    private AboutSteps aboutSteps;
+
     @Test
     public void loginUserTest(){
       loginMethod();
+    }
+
+    @Test
+    public void aboutTest(){
+        loginMethod();
+        aboutSteps.user_click_burger_button();
+        System.out.println("urime");
     }
 
     @Test
