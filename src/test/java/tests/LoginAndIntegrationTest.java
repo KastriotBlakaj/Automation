@@ -46,7 +46,8 @@ public class LoginAndIntegrationTest extends BaseClass {
     public void aboutTest(){
         loginMethod();
         aboutSteps.user_click_burger_button();
-        System.out.println("urime");
+        aboutSteps.user_click_on_about_button();
+        aboutSteps.user_verify_the_visiblity_of_the_button();
     }
 
     @Test
@@ -54,6 +55,7 @@ public class LoginAndIntegrationTest extends BaseClass {
         loginMethod();
         dashboardSteps.user_adds_item_to_the_cart();
         dashboardSteps.user_taps_on_the_cart();
+
     }
 
     @Test
