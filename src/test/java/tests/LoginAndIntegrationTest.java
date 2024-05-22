@@ -54,6 +54,8 @@ public class LoginAndIntegrationTest extends BaseClass {
     public void sortingTestbyprice(){
         loginMethod();
         dashboardSteps.user_taps_drop_down_button();
+        dashboardSteps.user_select_the_item();
+        System.out.println("liki");
     }
 
     @Test

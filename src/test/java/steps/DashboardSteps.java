@@ -19,4 +19,7 @@ public class DashboardSteps extends DashboardPage{
         dashboardPage.clickOnDropdownButton();
     }
 
+    public void user_select_the_item(){
+        dashboardPage.clickOnselectingItem();
+    }
 }
