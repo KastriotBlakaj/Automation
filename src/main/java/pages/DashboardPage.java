@@ -18,6 +18,9 @@ public class DashboardPage extends PageObject {
       @FindBy(css = "#shopping_cart_container > a")
       private WebElementFacade cartButton;
 
+      @FindBy(css = "#header_container > div.header_secondary_container > div > span")
+      private WebElementFacade sortingDropdownButton;
+
       public void clickAddToCartButton(){
         addingToCartButton.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
         addingToCartButton.click();
@@ -25,6 +28,11 @@ public class DashboardPage extends PageObject {
 
       public void clickOnCardButton(){
         cartButton.click();
+      }
+
+
+      public void clickOnDropdownButton(){
+          sortingDropdownButton.click();
       }
 
 }

@@ -51,6 +51,12 @@ public class LoginAndIntegrationTest extends BaseClass {
     }
 
     @Test
+    public void sortingTestbyprice(){
+        loginMethod();
+        dashboardSteps.user_taps_drop_down_button();
+    }
+
+    @Test
     public void addingNewItemIntoCart(){
         loginMethod();
         dashboardSteps.user_adds_item_to_the_cart();

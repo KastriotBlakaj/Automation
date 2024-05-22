@@ -14,4 +14,9 @@ public class DashboardSteps extends DashboardPage{
       dashboardPage.clickOnCardButton();
     }
 
+
+    public void user_taps_drop_down_button(){
+        dashboardPage.clickOnDropdownButton();
+    }
+
 }
