@@ -2,6 +2,10 @@ package steps;
 
 import pages.DashboardPage;
 
+import static data.Data.DASHBOARD_HEADLINE;
+import static data.Data.ITEM_PRICE;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class DashboardSteps extends DashboardPage{
 
     private DashboardPage dashboardPage;
@@ -14,12 +18,15 @@ public class DashboardSteps extends DashboardPage{
       dashboardPage.clickOnCardButton();
     }
 
-
     public void user_taps_drop_down_button(){
         dashboardPage.clickOnDropdownButton();
     }
 
     public void user_select_the_item(){
         dashboardPage.clickOnselectingItem();
+    }
+
+    public void verify_the_price_of_item(){
+        assertEquals(ITEM_PRICE, dashboardPage.priceOfItem());
     }
 }

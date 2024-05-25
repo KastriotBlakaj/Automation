@@ -23,6 +23,10 @@ public class DashboardPage extends PageObject {
 
       @FindBy(css ="#header_container > div.header_secondary_container > div > span > select > option:nth-child(4)")
       private WebElementFacade selectingItem;
+
+    @FindBy(css ="#inventory_container > div > div:nth-child(1) > div.inventory_item_description > div.pricebar > div")
+    private WebElementFacade priceOfItem;
+
       public void clickAddToCartButton(){
         addingToCartButton.withTimeoutOf(TIMEOUT_IN_SECONDS).waitUntilVisible();
         addingToCartButton.click();
@@ -32,13 +36,15 @@ public class DashboardPage extends PageObject {
         cartButton.click();
       }
 
-
       public void clickOnDropdownButton(){
           sortingDropdownButton.click();
       }
 
-
       public void clickOnselectingItem(){
           selectingItem.click();
+      }
+
+      public String priceOfItem(){
+         return priceOfItem.getTextContent();
       }
 }
