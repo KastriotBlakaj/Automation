@@ -11,4 +11,6 @@ public class Data {
   public static final String CHECKOUT_ERROR =  "Error: First Name is required";
 
   public static final String LOGIN_ERROR_TEXT =  "Epic sadface: Username and password do not match any user in this service";
+
+  public static final String ITEM_PRICE = "$49.99";
 }
