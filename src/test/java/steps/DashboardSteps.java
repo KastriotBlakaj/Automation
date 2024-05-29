@@ -2,8 +2,7 @@ package steps;
 
 import pages.DashboardPage;
 
-import static data.Data.DASHBOARD_HEADLINE;
-import static data.Data.ITEM_PRICE;
+import static data.Data.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DashboardSteps extends DashboardPage{
@@ -32,5 +31,9 @@ public class DashboardSteps extends DashboardPage{
 
     public void user_clicks_on_third_option(){
         dashboardPage.clickOnThirdItem();
+    }
+
+    public void verify_price_low_to_high(){
+        assertEquals(ITEM_PRICE_SORTED,dashboardPage.priceOfItem());
     }
 }
