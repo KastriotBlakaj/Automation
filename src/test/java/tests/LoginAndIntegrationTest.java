@@ -63,7 +63,8 @@ public class LoginAndIntegrationTest extends BaseClass {
         loginMethod();
         dashboardSteps.user_taps_drop_down_button();
         dashboardSteps.user_clicks_on_third_option();
-    }
+        dashboardSteps.verify_price_low_to_high();
+        }
 
     @Test
     public void addingNewItemIntoCart(){
