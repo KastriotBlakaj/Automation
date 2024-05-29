@@ -24,6 +24,10 @@ public class DashboardPage extends PageObject {
       @FindBy(css ="#header_container > div.header_secondary_container > div > span > select > option:nth-child(4)")
       private WebElementFacade selectingItem;
 
+      @FindBy(css = "#header_container > div.header_secondary_container > div > span > select > option:nth-child(3)")
+      private WebElementFacade selectingLowHighItem;
+
+
     @FindBy(css ="#inventory_container > div > div:nth-child(1) > div.inventory_item_description > div.pricebar > div")
     private WebElementFacade priceOfItem;
 
@@ -46,5 +50,9 @@ public class DashboardPage extends PageObject {
 
       public String priceOfItem(){
          return priceOfItem.getTextContent();
+      }
+
+      public void clickOnThirdItem(){
+          selectingLowHighItem.click();
       }
 }

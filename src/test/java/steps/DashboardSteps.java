@@ -29,4 +29,8 @@ public class DashboardSteps extends DashboardPage{
     public void verify_the_price_of_item(){
         assertEquals(ITEM_PRICE, dashboardPage.priceOfItem());
     }
+
+    public void user_clicks_on_third_option(){
+        dashboardPage.clickOnThirdItem();
+    }
 }
