@@ -26,7 +26,8 @@ public class BaseClass extends UIInteractionSteps {
           options.addArguments("--disable-dev-shm-usage");
 
           options.setCapability("goog:loggingPrefs", Map.of("browser", "ALL"));
-        WebDriverManager.chromedriver().setup();
+          System.setProperty("webdriver.chrome.verboseLogging", "true");
+          WebDriverManager.chromedriver().setup();
           getDriver().manage().window().maximize();
           openUrl("https://www.saucedemo.com/");
       }
