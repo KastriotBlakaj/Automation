@@ -16,11 +16,6 @@ public class BaseClass extends UIInteractionSteps {
       @Before
       public void userRedirectToRightUrl() {
         WebDriverManager.chromedriver().setup();
-        String os = System.getProperty("os.name").toLowerCase();
-        String driverPath;
-        WebDriverManager.chromedriver().setup();
-        driverPath="/Users/kastriotblakaj/Downloads/chromedriver";
-        System.setProperty("webdriver.chrome.driver", driverPath);
         openUrl("https://www.saucedemo.com/");
         getDriver().manage().window().maximize();
       }
