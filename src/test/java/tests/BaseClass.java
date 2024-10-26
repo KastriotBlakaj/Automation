@@ -19,15 +19,7 @@ public class BaseClass extends UIInteractionSteps {
         String os = System.getProperty("os.name").toLowerCase();
         String driverPath;
         WebDriverManager.chromedriver().setup();
-        if(os.contains("mac")){
-              driverPath="/Users/kastriotblakaj/Downloads/chromedriver";
-          }else if(os.contains("win")){
-              driverPath= "C:\\Users\\Lenovo\\Desktop\\chromedriver-win64\\chromedriver.exe";
-          }
-        else{
-            throw new IllegalStateException("Operating System not supported");
-        }
-
+        driverPath="/Users/kastriotblakaj/Downloads/chromedriver";
         System.setProperty("webdriver.chrome.driver", driverPath);
         openUrl("https://www.saucedemo.com/");
         getDriver().manage().window().maximize();
