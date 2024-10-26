@@ -16,20 +16,16 @@ public class BaseClass extends UIInteractionSteps {
 
       @Before
       public void userRedirectToRightUrl() {
-          // Setup Chrome options
           ChromeOptions options = new ChromeOptions();
           options.addArguments("--headless");
           options.addArguments("--no-sandbox");
           options.addArguments("--disable-dev-shm-usage");
+
         WebDriverManager.chromedriver().setup();
-        openUrl("https://www.saucedemo.com/");
-        getDriver().manage().window().maximize();
+          getDriver().manage().window().maximize();
+          openUrl("https://www.saucedemo.com/");
       }
 
-      public void scrollToElement(WebElement element) {
-        Actions actions = new Actions(getDriver());
-        actions.moveToElement(element, 0, 0).perform();
-      }
 
       @After
       public void tearDown() {
