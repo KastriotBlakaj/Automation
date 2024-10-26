@@ -20,13 +20,6 @@ public class BaseClass extends UIInteractionSteps {
 
       @Before
       public void userRedirectToRightUrl() {
-          ChromeOptions options = new ChromeOptions();
-          options.addArguments("--headless");
-          options.addArguments("--no-sandbox");
-          options.addArguments("--disable-dev-shm-usage");
-
-          options.setCapability("goog:loggingPrefs", Map.of("browser", "ALL"));
-          System.setProperty("webdriver.chrome.verboseLogging", "true");
           WebDriverManager.chromedriver().setup();
           getDriver().manage().window().maximize();
           openUrl("https://www.saucedemo.com/");
@@ -35,7 +28,6 @@ public class BaseClass extends UIInteractionSteps {
 
       @After
       public void tearDown() {
-          LogEntries logs = getDriver().manage().logs().get(LogType.BROWSER);
         if (!(getDriver() ==null)){
             getDriver().quit();
         }
