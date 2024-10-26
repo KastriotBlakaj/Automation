@@ -18,7 +18,12 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '21'
-          distribution: 'adopt' 
+          distribution: 'adopt'
+          
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
 
       - name: Cache Maven dependencies
         uses: actions/cache@v2
