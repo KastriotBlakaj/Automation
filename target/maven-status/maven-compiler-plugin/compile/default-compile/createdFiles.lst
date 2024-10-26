@@ -1,0 +1,8 @@
+pages/CartPage.class
+org/example/Main.class
+PagesData/PagesData.class
+pages/CheckOutPage.class
+pages/DashboardPage.class
+pages/AboutPage.class
+pages/NegativeLoginPage.class
+pages/LoginPage.class

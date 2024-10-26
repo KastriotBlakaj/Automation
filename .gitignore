@@ -1,2 +1,6 @@
 .idea/
-target/
+!target/*.jar                       # Include JAR files
+!target/*.war                       # Include WAR files (if applicable)
+!target/failsafe-reports/          # Include the failsafe reports directory
+!target/surefire-reports/          # Include Surefire test reports (if applicable)
+!target/classes/
