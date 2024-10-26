@@ -7,6 +7,7 @@ import net.serenitybdd.core.steps.UIInteractionSteps;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 
 @ExtendWith(SerenityJUnit5Extension.class)
@@ -15,6 +16,11 @@ public class BaseClass extends UIInteractionSteps {
 
       @Before
       public void userRedirectToRightUrl() {
+          // Setup Chrome options
+          ChromeOptions options = new ChromeOptions();
+          options.addArguments("--headless");
+          options.addArguments("--no-sandbox");
+          options.addArguments("--disable-dev-shm-usage");
         WebDriverManager.chromedriver().setup();
         openUrl("https://www.saucedemo.com/");
         getDriver().manage().window().maximize();
