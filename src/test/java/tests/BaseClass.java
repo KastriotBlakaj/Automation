@@ -9,6 +9,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogType;
+
+import java.util.Map;
 
 @ExtendWith(SerenityJUnit5Extension.class)
 public class BaseClass extends UIInteractionSteps {
@@ -21,6 +25,7 @@ public class BaseClass extends UIInteractionSteps {
           options.addArguments("--no-sandbox");
           options.addArguments("--disable-dev-shm-usage");
 
+          options.setCapability("goog:loggingPrefs", Map.of("browser", "ALL"));
         WebDriverManager.chromedriver().setup();
           getDriver().manage().window().maximize();
           openUrl("https://www.saucedemo.com/");
@@ -29,6 +34,7 @@ public class BaseClass extends UIInteractionSteps {
 
       @After
       public void tearDown() {
+          LogEntries logs = getDriver().manage().logs().get(LogType.BROWSER);
         if (!(getDriver() ==null)){
             getDriver().quit();
         }
