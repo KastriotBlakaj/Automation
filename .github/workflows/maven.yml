@@ -1,17 +1,20 @@
-
-name: Maven CI
+name: CI/CD Pipeline
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight UTC
-  workflow_dispatch: # Allows manual triggers for the workflow
+  push:
+    branches:
+      - main  # or your default branch
+  pull_request:
+    branches:
+      - main  # or your default branch
+  workflow_dispatch:  # Allows manual triggers
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository code
+      - name: Check out repository
         uses: actions/checkout@v2
 
       - name: Set up JDK 21
@@ -19,18 +22,6 @@ jobs:
         with:
           java-version: '21'
           distribution: 'adopt'
-
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-
-      - name: Verify Chrome Installation
-        run: |
-          google-chrome --version
 
       - name: Cache Maven dependencies
         uses: actions/cache@v2
@@ -44,4 +35,4 @@ jobs:
         run: mvn clean install
 
       - name: Run Tests
-        run: mvn test
+        run: mvn verify
