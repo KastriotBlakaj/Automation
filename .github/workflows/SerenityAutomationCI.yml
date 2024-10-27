@@ -58,11 +58,25 @@ jobs:
 
       - name: Install Dependencies
         run: mvn clean install -DskipTests
-          
-      - name: Run Serenity Tests
+
+      - name: Update Chrome and ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          google-chrome --version
+          # Use WebDriverManager to ensure the ChromeDriver version matches
+          mvn dependency:resolve -Dwebdriver.chrome.driver=latest
+      
+
+      - name: Install Xvfb
+        run: sudo apt-get install -y xvfb
+
+      - name: Run Tests with Xvfb
         env:
           WEBDRIVER_CHROME_LOG_LEVEL: ALL
         run: |
+          Xvfb :99 &  # Start Xvfb on display 99
+          export DISPLAY=:99  # Set display environment variable
           echo "Running Serenity Tests..."
           mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
       
