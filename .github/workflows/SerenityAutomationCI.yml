@@ -66,7 +66,7 @@ jobs:
           google-chrome --version
           # Use WebDriverManager to ensure the ChromeDriver version matches
           mvn dependency:resolve -Dwebdriver.chrome.driver=latest
-      
+
 
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
@@ -79,13 +79,17 @@ jobs:
           export DISPLAY=:99  # Set display environment variable
           echo "Running Serenity Tests..."
           mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
-      
 
-      - name: Publish Serenity Reports
-        if: success()
+
+      - name: Publish and Upload Serenity Reports
+        if: always()  # Ensure this runs regardless of success or failure
         run: |
-          mkdir -p serenity-report
-          cp -r target/site/serenity/* serenity-report/
+            mkdir -p serenity-report
+            cp -r target/site/serenity/* serenity-report/
+          uses: actions/upload-artifact@v3
+          with:
+            name: serenity-report
+            path: serenity-report
 
       - name: Upload Serenity Reports as Artifact
         uses: actions/upload-artifact@v3
