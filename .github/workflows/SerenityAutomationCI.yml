@@ -55,7 +55,13 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-
+            
+      - name: Debug Chrome
+        run: |
+          echo "Chrome version:"
+          google-chrome --version
+          echo "Testing if Chrome starts..."
+          google-chrome --headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 http://example.com || echo "Chrome failed to start"
   
       - name: Run Serenity Tests
         env:
