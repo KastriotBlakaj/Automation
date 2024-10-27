@@ -63,6 +63,10 @@ jobs:
           # Use WebDriverManager to ensure the ChromeDriver version matches
           mvn dependency:resolve -Dwebdriver.chrome.driver=latest
 
+      - name: Update WebDriverManager
+        run: mvn dependency:resolve -Dwebdriver.chrome.driver=latest
+
+
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
 
