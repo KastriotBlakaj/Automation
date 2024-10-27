@@ -64,6 +64,17 @@ jobs:
         with:
           chrome-version: 'stable' # or specify a specific stable version if needed
 
+      - name: Check ChromeDriver Version
+        run: |
+          CHROMEDRIVER_PATH=$(which chromedriver)
+          if [ -z "$CHROMEDRIVER_PATH" ]; then
+            echo "ChromeDriver is not installed."
+            exit 1
+          else
+            echo "ChromeDriver is installed at: $CHROMEDRIVER_PATH"
+            chromedriver --version
+          fi
+
       - name: Run Serenity Tests
         run: mvn verify -Dserenity.logging=VERBOSE -Dwebdriver.driver=chrome -Dchrome.options="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-allow-origins=*"
 
