@@ -90,7 +90,7 @@ public class LoginAndIntegrationTest extends BaseClass {
     public void addingNewItemAndCheckout(){
         loginMethod();
         dashboardSteps.user_adds_item_to_the_cart();
-        dashboardSteps.user_taps_on_the_cart();
+//        dashboardSteps.user_taps_on_the_cart();
         cartSteps.verify_cart_headline_text();
         cartSteps.click_remove_item_button();
         cartSteps.click_continue_shopping_button();
