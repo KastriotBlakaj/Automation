@@ -65,6 +65,7 @@ jobs:
           chrome-version: 'stable' # or specify a specific stable version if needed
 
       - name: Check ChromeDriver Version
+        id: check_chromedriver
         run: |
           CHROMEDRIVER_PATH=$(which chromedriver)
           if [ -z "$CHROMEDRIVER_PATH" ]; then
@@ -72,11 +73,14 @@ jobs:
             exit 1
           else
             echo "ChromeDriver is installed at: $CHROMEDRIVER_PATH"
+            echo "CHROMEDRIVER_PATH=$CHROMEDRIVER_PATH" >> $GITHUB_ENV
             chromedriver --version
           fi
 
       - name: Run Serenity Tests
-        run: mvn verify 
+        env:  # Set the environment variable for this step
+          CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
+        run: mvn verify -Dwebdriver.chrome.driver=$CHROMEDRIVER_PATH 
 
       - name: Publish Serenity Reports
         if: success()
