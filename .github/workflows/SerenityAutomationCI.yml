@@ -56,17 +56,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
             
-      - name: Debug Chrome
+      - name: Debug and Run Serenity Tests
+        env:
+          WEBDRIVER_CHROME_LOG_LEVEL: ALL
         run: |
           echo "Chrome version:"
           google-chrome --version
           echo "Testing if Chrome starts..."
           google-chrome --headless --no-sandbox --disable-dev-shm-usage --remote-debugging-port=9222 http://example.com || echo "Chrome failed to start"
-  
-      - name: Run Serenity Tests
-        env:
-            WEBDRIVER_CHROME_LOG_LEVEL: ALL
-        run: mvn test -Dwebdriver.chrome.args="--headless --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
+      
+          echo "Running Serenity Tests..."
+          mvn test -Dwebdriver.chrome.args="--headless --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
 
       - name: Publish Serenity Reports
         if: success()
