@@ -14,6 +14,12 @@ public class BaseClass extends UIInteractionSteps {
     public void userRedirectToRightUrl() {
         WebDriverManager.chromedriver().setup();
         getDriver().manage().window().maximize();
+        try {
+            Thread.sleep(10000); // Wait for 5 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         openUrl("https://www.saucedemo.com/");
     }
 
