@@ -60,12 +60,7 @@ jobs:
         run: mvn clean install -DskipTests
           
       - name: Run Serenity Tests
-        run: |
-          mvn verify -Dwebdriver.chrome.logFile=chrome.log \
-                      -Dwebdriver.chrome.verboseLogging=true \
-                      -Dwebdriver.chrome.logLevel=ALL \
-                      -Dwebdriver.chrome.log=debug \
-                      -Dwebdriver.chrome.useAutomationExtension=false
+        run: mvn test
 
       - name: Publish Serenity Reports
         if: success()
