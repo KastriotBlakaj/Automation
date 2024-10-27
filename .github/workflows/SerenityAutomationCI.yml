@@ -61,8 +61,10 @@ jobs:
           
       - name: Run Serenity Tests
         env:
-            WEBDRIVER_CHROME_LOG_LEVEL: ALL
-        run: mvn test -Dwebdriver.chrome.args="--headless --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
+          WEBDRIVER_CHROME_LOG_LEVEL: ALL
+        run: |
+          echo "Running Serenity Tests..."
+          mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
 
       - name: Publish Serenity Reports
         if: success()
