@@ -56,9 +56,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install Dependencies
-        run: mvn clean install -DskipTests
-          
+  
       - name: Run Serenity Tests
         env:
             WEBDRIVER_CHROME_LOG_LEVEL: ALL
