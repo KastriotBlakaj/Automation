@@ -58,31 +58,6 @@ jobs:
 
       - name: Install Dependencies
         run: mvn clean install -DskipTests
-
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 'stable' # You can specify a specific version if needed
-
-      - name: Check Chrome Installation
-        run: |
-          google-chrome --version
-
-      - name: Check ChromeDriver Version
-        run: |
-          CHROMEDRIVER_PATH=$(which chromedriver)
-          if [ -z "$CHROMEDRIVER_PATH" ]; then
-            echo "ChromeDriver is not installed."
-            exit 1
-          else
-            echo "ChromeDriver is installed at: $CHROMEDRIVER_PATH"
-            chromedriver --version
-          fi
-          
-
-      - name: Kill existing Chrome processes
-        run: |
-          pkill chrome || echo "No running Chrome processes to kill."    
           
       - name: Run Serenity Tests
         run: |
