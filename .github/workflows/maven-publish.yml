@@ -78,7 +78,15 @@ jobs:
             echo "ChromeDriver is installed at: $CHROMEDRIVER_PATH"
             chromedriver --version
           fi
+          
+      - name: Wait for Chrome to Load
+        run: sleep 10
 
+      - name: Wait for Chrome to Start
+        run: |
+          chmod +x ./wait-for-chrome.sh 
+          ./wait-for-chrome.sh
+   
       - name: Run Serenity Tests
         run: |
           mvn verify -Dwebdriver.chrome.logFile=chrome.log -Dwebdriver.chrome.verboseLogging=true
