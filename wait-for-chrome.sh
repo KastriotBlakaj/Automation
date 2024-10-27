@@ -16,3 +16,16 @@ done
 
 echo "Timeout: Chrome did not start within $TIMEOUT seconds."
 exit 1
+
+# Capture Chrome logs
+CHROME_LOG_FILE="chrome.log"
+CHROME_DRIVER_LOG_FILE="chromedriver.log"
+
+# Wait for Chrome to start
+wait $!
+
+# Log Chrome and ChromeDriver output for debugging
+echo "Chrome logs:"
+cat $CHROME_LOG_FILE || echo "No Chrome logs found."
+echo "ChromeDriver logs:"
+cat $CHROME_DRIVER_LOG_FILE || echo "No ChromeDriver logs found."
