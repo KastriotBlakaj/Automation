@@ -79,14 +79,14 @@ jobs:
             chromedriver --version
           fi
           
-      - name: Wait for Chrome to Load
-        run: sleep 10
-
-      - name: Wait for Chrome to Start
+      - name: Display Chrome Logs
         run: |
-          chmod +x ./wait-for-chrome.sh 
-          ./wait-for-chrome.sh
-   
+          echo "ChromeDriver Logs:"
+          cat chromedriver.log || echo "No ChromeDriver logs found."
+    
+          echo "Chrome Logs:"
+          cat chrome.log || echo "No Chrome logs found."
+          
       - name: Run Serenity Tests
         run: |
           mvn verify -Dwebdriver.chrome.logFile=chrome.log -Dwebdriver.chrome.verboseLogging=true
