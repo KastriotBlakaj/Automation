@@ -79,17 +79,14 @@ jobs:
             chromedriver --version
           fi
           
-      - name: Display Chrome Logs
-        run: |
-          echo "ChromeDriver Logs:"
-          cat chromedriver.log || echo "No ChromeDriver logs found."
-    
-          echo "Chrome Logs:"
-          cat chrome.log || echo "No Chrome logs found."
           
       - name: Run Serenity Tests
         run: |
-          mvn verify -Dwebdriver.chrome.logFile=chrome.log -Dwebdriver.chrome.verboseLogging=true
+          mvn verify -Dwebdriver.chrome.logFile=chrome.log \
+                      -Dwebdriver.chrome.verboseLogging=true \
+                      -Dwebdriver.chrome.logLevel=ALL \
+                      -Dwebdriver.chrome.log=debug \
+                      -Dwebdriver.chrome.useAutomationExtension=false
 
       - name: Publish Serenity Reports
         if: success()
