@@ -79,17 +79,12 @@ jobs:
           echo "Running Serenity Tests..."
           mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
 
-      - name: Publish Serenity Reports
-        if: always()
-        run: |
-            mkdir -p serenity-report
-            cp -r target/site/serenity/* serenity-report/
-
-      - name: Upload Serenity Reports as Artifact
-        uses: actions/upload-artifact@v3
+      - name: Test Report Generation
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
         with:
-          name: serenity-report
-          path: serenity-report/
+          name: Serenity Report                 
+          path: target/site/serenity/ 
 
       - name: Upload Chrome Logs
         if: failure()
