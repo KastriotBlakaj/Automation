@@ -79,6 +79,10 @@ jobs:
             chromedriver --version
           fi
           
+
+      - name: Kill existing Chrome processes
+        run: |
+          pkill chrome || echo "No running Chrome processes to kill."    
           
       - name: Run Serenity Tests
         run: |
