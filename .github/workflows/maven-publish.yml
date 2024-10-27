@@ -76,7 +76,7 @@ jobs:
           fi
 
       - name: Run Serenity Tests
-        run: mvn verify -Dserenity.logging=VERBOSE -Dwebdriver.driver=chrome -Dchrome.options="--headless --no-sandbox --disable-dev-shm-usage --disable-gpu --remote-allow-origins=*"
+        run: mvn verify 
 
       - name: Publish Serenity Reports
         if: success()
