@@ -65,6 +65,7 @@ jobs:
         run: |
           echo "Running Serenity Tests..."
           mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
+      
 
       - name: Publish Serenity Reports
         if: success()
