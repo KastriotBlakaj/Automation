@@ -12,13 +12,13 @@ public class AboutPage extends PageObject {
 
     private static final Duration TIMEOUT_IN_SECONDS = ofSeconds(20);
 
-    @FindBy(id = "react-burger-menu-btn") //Locator
+    @FindBy(id = "react-burger-menu-btn")
     private WebElementFacade burgerButton;
 
     @FindBy(id = "about_sidebar_link")
     private WebElementFacade aboutButton;
 
-    @FindBy(css = "#__next > div.MuiBox-root.css-14ifkx6 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-sv9kmg > div > div.MuiStack-root.css-mq2a14 > div.MuiStack-root.css-lu2zz1 > div > div.MuiStack-root.css-chbenk > div:nth-child(1) > a > button")
+    @FindBy(css = "#__next > div.MuiBox-root.css-14ifkx6 > div.MuiContainer-root.MuiContainer-maxWidthLg.css-w03l51 > div > div > div.MuiStack-root.css-lu2zz1 > div > div.MuiStack-root.css-chbenk > div:nth-child(1) > a > button")
     private WebElementFacade testFreeButton;
 
     public void click_buger_button(){
