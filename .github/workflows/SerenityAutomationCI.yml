@@ -1,24 +1,17 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
-
 name: Serenity Automation CI/CD
-
-on:
+'on':
   push:
     branches:
       - main
   pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -41,24 +34,20 @@ jobs:
             libxshmfence1 \
             libgbm-dev \
             libasound2
-
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: '21'
-          distribution: 'temurin'
-
+          distribution: temurin
       - name: Cache Maven Packages
         uses: actions/cache@v3
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          key: '${{ runner.os }}-maven-${{ hashFiles(''**/pom.xml'') }}'
           restore-keys: |
             ${{ runner.os }}-maven-
-
       - name: Install Dependencies
         run: mvn clean install -DskipTests
-
       - name: Update Chrome and ChromeDriver
         run: |
           sudo apt-get update
@@ -66,48 +55,43 @@ jobs:
           google-chrome --version
           # Use WebDriverManager to ensure the ChromeDriver version matches
           mvn dependency:resolve -Dwebdriver.chrome.driver=latest
-
-
       - name: Install Xvfb
         run: sudo apt-get install -y xvfb
-
       - name: Run Tests with Xvfb
         env:
           WEBDRIVER_CHROME_LOG_LEVEL: ALL
-        run: |
+        run: >
           Xvfb :99 &  # Start Xvfb on display 99
+
           export DISPLAY=:99  # Set display environment variable
+
           echo "Running Serenity Tests..."
-          mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
 
-
+          mvn test -Dwebdriver.chrome.args="--headless --disable-gpu
+          --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
       - name: Publish and Upload Serenity Reports
-        if: always()  # Ensure this runs regardless of success or failure
+        if: always()
         run: |
-            mkdir -p serenity-report
-            cp -r target/site/serenity/* serenity-report/
+          mkdir -p serenity-report
+          cp -r target/site/serenity/* serenity-report/
         uses: actions/upload-artifact@v3
         with:
-           name: serenity-report
-           path: serenity-report
-
+          name: serenity-report
+          path: serenity-report
       - name: Upload Serenity Reports as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: serenity-report
           path: serenity-report
-
       - name: Upload Chrome Logs
         if: failure()
         uses: actions/upload-artifact@v3
         with:
           name: chrome-logs
           path: chrome.log
-
       - name: Notify CI/CD Success
         if: success()
         run: echo "CI/CD Pipeline completed successfully."
-
       - name: Notify CI/CD Failure
         if: failure()
         run: echo "CI/CD Pipeline failed."
