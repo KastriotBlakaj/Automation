@@ -1,1 +1,11 @@
 .idea/
+# Ignore build output
+target/
+
+# Don't ignore specific files and directories within target
+!target/*.jar
+!target/*.war
+!target/failsafe-reports/
+!target/surefire-reports/
+!target/classes/
+!target/site/serenity/
