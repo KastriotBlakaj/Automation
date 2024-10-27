@@ -62,10 +62,13 @@ jobs:
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 'stable' # or specify a specific stable version if needed
+          chrome-version: 'stable' # You can specify a specific version if needed
+
+      - name: Check Chrome Installation
+        run: |
+          google-chrome --version
 
       - name: Check ChromeDriver Version
-        id: check_chromedriver
         run: |
           CHROMEDRIVER_PATH=$(which chromedriver)
           if [ -z "$CHROMEDRIVER_PATH" ]; then
@@ -73,14 +76,12 @@ jobs:
             exit 1
           else
             echo "ChromeDriver is installed at: $CHROMEDRIVER_PATH"
-            echo "CHROMEDRIVER_PATH=$CHROMEDRIVER_PATH" >> $GITHUB_ENV
             chromedriver --version
           fi
 
       - name: Run Serenity Tests
-        env:  # Set the environment variable for this step
-          CHROMEDRIVER_PATH: ${{ env.CHROMEDRIVER_PATH }}
-        run: mvn verify -Dwebdriver.chrome.driver=$CHROMEDRIVER_PATH 
+        run: |
+          mvn verify -Dwebdriver.chrome.logFile=chrome.log -Dwebdriver.chrome.verboseLogging=true
 
       - name: Publish Serenity Reports
         if: success()
@@ -93,6 +94,13 @@ jobs:
         with:
           name: serenity-report
           path: serenity-report
+
+      - name: Upload Chrome Logs
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: chrome-logs
+          path: chrome.log
 
       - name: Notify CI/CD Success
         if: success()
