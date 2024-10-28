@@ -1,4 +1,4 @@
-name: Serenity Automation CI/CD - ${{ github.event_name }} on ${{ github.run_id }} at ${{ github.event.date }}
+name: Serenity Automation CI/CD -$(date +'%Y-%m-%d')
 
 on:
   push:
