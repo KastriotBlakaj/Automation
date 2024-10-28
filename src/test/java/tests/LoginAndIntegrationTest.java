@@ -86,6 +86,7 @@ public class LoginAndIntegrationTest extends BaseClass {
         cartSteps.click_on_checkout_button();
     }
 
+
     @Test
     public void addingNewItemAndCheckout(){
         loginMethod();
@@ -107,6 +108,205 @@ public class LoginAndIntegrationTest extends BaseClass {
         checkoutSteps.checkout_finish_button();
         checkoutSteps.verify_finish_headline_text();
     }
+
+    @Test
+    public void addingNewItemAndCheckout1(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout2(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout3(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout4(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout5(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout6(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout7(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout8(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
+    @Test
+    public void addingNewItemAndCheckout9(){
+        loginMethod();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.verify_cart_headline_text();
+        cartSteps.click_remove_item_button();
+        cartSteps.click_continue_shopping_button();
+        dashboardSteps.user_adds_item_to_the_cart();
+        dashboardSteps.user_taps_on_the_cart();
+        cartSteps.click_on_checkout_button();
+        checkoutSteps.verify_checkout_headline_Text();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.verify_error_on_checkout();
+        checkoutSteps.checkout_first_name();
+        checkoutSteps.checkout_last_name();
+        checkoutSteps.checkout_postal_code();
+        checkoutSteps.click_continue_button();
+        checkoutSteps.checkout_finish_button();
+        checkoutSteps.verify_finish_headline_text();
+    }
+
 
     public void loginMethod(){
         baseClass.userRedirectToRightUrl();
