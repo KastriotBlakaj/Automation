@@ -1,4 +1,4 @@
-name: Serenity Automation CI/CD
+name: Serenity Automation CI/CD - ${{ github.event_name }} on ${{ github.run_id }}
 
 on:
   push:
