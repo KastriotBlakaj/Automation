@@ -1,5 +1,4 @@
-name: Serenity Automation CI/CD -$(date +'%Y-%m-%d')
-
+name: Serenity Automation CI/CD
 on:
   push:
     branches:
