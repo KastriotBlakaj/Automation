@@ -12,10 +12,8 @@ public class NegativeLoginSteps extends NegativeLoginPage {
     private NegativeLoginPage negativeLoginPage;
 
 
-    @Step
-    public void userRedirectToRightUrl() {
-        openAt("/");  // This will open the base URL from serenity.properties
-    }
+
+
     @Step
     public void user_puts_wrong_username() {
         negativeLoginPage.userPutsWrongUsernameField();

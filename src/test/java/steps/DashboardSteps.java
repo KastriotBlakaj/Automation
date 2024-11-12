@@ -11,11 +11,6 @@ public class DashboardSteps extends DashboardPage {
     private DashboardPage dashboardPage;
 
     @Step
-    public void userRedirectToRightUrl() {
-        openAt("/");  // This will open the base URL from serenity.properties
-    }
-
-    @Step
     public void user_adds_item_to_the_cart() {
         dashboardPage.clickAddToCartButton();
     }

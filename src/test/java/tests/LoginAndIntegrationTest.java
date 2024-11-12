@@ -1,8 +1,10 @@
 package tests;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
@@ -33,6 +35,11 @@ public class LoginAndIntegrationTest {
 
     @Steps
     private AboutSteps aboutSteps;
+
+    @BeforeAll
+    public static void setup() {
+        WebDriverManager.chromedriver().setup();
+    }
 
     @Test
     public void loginUserTest(){
