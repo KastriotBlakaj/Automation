@@ -80,6 +80,9 @@ jobs:
           echo "Running Serenity Tests..."
           mvn test -Dwebdriver.chrome.args="--headless --disable-gpu --no-sandbox --disable-dev-shm-usage --remote-allow-origins=*"
 
+      - name: Try getting the reports
+        run: mvn clean verify
+
       - name: Test Report Generation
         uses: actions/upload-artifact@v4
         if: success() || failure()
