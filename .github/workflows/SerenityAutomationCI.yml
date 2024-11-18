@@ -85,7 +85,7 @@ jobs:
         if: success() || failure()
         with:
           name: Serenity Report                 
-          path: target/site/serenity/ 
+          path: target/serenity-reports/
 
       - name: Upload Chrome Logs
         if: failure()
