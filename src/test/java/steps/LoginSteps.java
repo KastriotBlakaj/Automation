@@ -33,6 +33,7 @@ public class LoginSteps extends LoginPage {
 
     @Step
     public void user_verify_the_dashboard_headline(){
+
       assertEquals(DASHBOARD_HEADLINE, loginPage.getDashboardHeadline());
     }
 }
